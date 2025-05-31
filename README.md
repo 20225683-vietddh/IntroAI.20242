@@ -1,14 +1,14 @@
-# 🎯 Age & Gender Classification - Multi-Task Learning
+# Age & Gender Classification - Multi-Task Learning
 
 Dự án phân loại tuổi và giới tính từ ảnh khuôn mặt sử dụng Deep Learning.
 
-## 📋 Mục tiêu
+## Mục tiêu
 
 - **Phân loại giới tính**: Nam/Nữ (2 classes)
 - **Phân loại tuổi**: 8 nhóm tuổi từ (0,2) đến (60,100)
 - **Multi-task learning**: Huấn luyện đồng thời cả 2 tasks với shared feature extraction
 
-## 🏗️ Kiến trúc
+## Kiến trúc
 
 ### Model Architecture
 - **Shared CNN layers**: 3 Convolutional layers + 2 Fully Connected layers
@@ -40,7 +40,7 @@ IntroAI.20242.Project/
 └── README.md                     # This file
 ```
 
-## 🚀 Cài đặt
+## Cài đặt
 
 ### 1. Clone repository
 ```
@@ -53,13 +53,13 @@ cd IntroAI.20242.Project
 pip install -r requirements.txt
 ```
 
-## 📊 Dataset
+## Dataset
 
 Dự án sử dụng dataset với cấu trúc:
 - **Images**: Ảnh khuôn mặt đã được aligned (227x227x3 pixels)
 - **Labels**: File `fold_0_data.txt` chứa thông tin user_id, image_name, age, gender
 - **Format**: JPG images trong thư mục `data/raw/aligned/`
 
-## 🎯 Sử dụng
+## Sử dụng
 
-**Happy coding! 🎯**
+** 🎯 Happy coding! 🎯**
