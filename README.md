@@ -44,7 +44,7 @@ IntroAI.20242.Project/
 
 ### 1. Clone repository
 ```
-git clone https://github.com/20225683-vietddh/IntroAI.20242.Project.git
+git clone https://github.com/20225683-vietddh/IntroAI.20242.git
 cd IntroAI.20242.Project
 ```
 
