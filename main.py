@@ -4,6 +4,7 @@ from PIL import Image, ImageTk
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.models import load_model #type: ignore
+from src.utils import plot_probabilities
 
 # ---- Cấu hình lớp ----
 GENDER_CLASSES = ['Nữ', 'Nam']
@@ -54,21 +55,26 @@ def choose_image():
         image_label.image = img_tk
 
         result_label.config(text=(
-            f"Gender: {gender_label} ({gender_pred[0][np.argmax(gender_pred)]:.2%})\n"
-            f"Age: {age_label} ({age_pred[0][np.argmax(age_pred)]:.2%})"
+            f"Giới tính: {gender_label} ({gender_pred[0][np.argmax(gender_pred)]:.2%})\n"
+            f"Nhóm tuổi: {age_label} ({age_pred[0][np.argmax(age_pred)]:.2%})"
         ))
+
+        # Vẽ biểu đồ xác suất
+        plot_probabilities(GENDER_CLASSES, gender_pred[0], "Giới tính", gender_chart_frame)
+        plot_probabilities(AGE_CLASSES, age_pred[0], "Nhóm tuổi", age_chart_frame)
 
     except Exception as e:
         messagebox.showerror("Error", str(e))
 
 # ---- Giao diện Tkinter ----
 root = tk.Tk()
-root.title("Gender & Age Prediction")
-root.geometry("350x400")
+root.title("Dự đoán giới tính và nhóm tuổi")
+root.geometry("1000x750")
 root.resizable(False, False)
+root.configure(bg="white")
 
 # Nút chọn ảnh
-btn = tk.Button(root, text="Choose Image", command=choose_image, font=('Arial', 12))
+btn = tk.Button(root, text="Tải lên hình ảnh", command=choose_image, font=('Arial', 12), bg="blue", fg="white")
 btn.pack(pady=15)
 
 # Khung hiển thị ảnh
@@ -78,5 +84,17 @@ image_label.pack()
 # Kết quả dự đoán
 result_label = tk.Label(root, text="", font=('Arial', 14), fg="blue")
 result_label.pack(pady=10)
+
+# Frame chứa 2 biểu đồ
+chart_container_frame = tk.Frame(root, bg="white")
+chart_container_frame.pack(pady=10)
+
+# Biểu đồ giới tính (bên trái)
+gender_chart_frame = tk.Frame(chart_container_frame, bg="white")
+gender_chart_frame.pack(side="left", padx=0)
+
+# Biểu đồ nhóm tuổi (bên phải)
+age_chart_frame = tk.Frame(chart_container_frame, bg="white")
+age_chart_frame.pack(side="left", padx=0)
 
 root.mainloop()
