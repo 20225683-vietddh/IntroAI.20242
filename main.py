@@ -6,7 +6,7 @@ import tensorflow as tf
 from tensorflow.keras.models import load_model #type: ignore
 
 # ---- Cấu hình lớp ----
-GENDER_CLASSES = ['Male', 'Female']
+GENDER_CLASSES = ['Nữ', 'Nam']
 AGE_CLASSES = ['(0, 2)', '(4, 6)', '(8, 13)', '(15, 20)', '(25, 32)', '(38, 43)', '(48, 53)', '(60, 100)']
 
 # ---- Load mô hình ----
