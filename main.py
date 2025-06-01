@@ -10,7 +10,7 @@ GENDER_CLASSES = ['Male', 'Female']
 AGE_CLASSES = ['(0, 2)', '(4, 6)', '(8, 13)', '(15, 20)', '(25, 32)', '(38, 43)', '(48, 53)', '(60, 100)']
 
 # ---- Load mô hình ----
-MODEL_PATH = "outputs/trained_model_ver3.h5"  
+MODEL_PATH = "outputs/trained_model_ver2.h5"  
 model = load_model(MODEL_PATH)
 
 # ---- Tiền xử lý ảnh ----
