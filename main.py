@@ -87,7 +87,7 @@ result_label.pack(pady=10)
 
 # Frame chứa 2 biểu đồ
 chart_container_frame = tk.Frame(root, bg="white")
-chart_container_frame.pack(pady=10)
+chart_container_frame.pack(pady=0)
 
 # Biểu đồ giới tính (bên trái)
 gender_chart_frame = tk.Frame(chart_container_frame, bg="white")
