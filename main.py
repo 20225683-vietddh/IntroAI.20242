@@ -9,7 +9,7 @@ from tensorflow.keras.models import load_model #type: ignore
 GENDER_CLASSES = ['Nữ', 'Nam']
 AGE_CLASSES = ['(0, 2)', '(4, 6)', '(8, 13)', '(15, 20)', '(25, 32)', '(38, 43)', '(48, 53)', '(60, 100)']
 
-# ---- Load mô hình ----
+# ---- Load mô hình ----g
 MODEL_PATH = "outputs/trained_model_ver2.h5"  
 model = load_model(MODEL_PATH)
 
@@ -54,8 +54,8 @@ def choose_image():
         image_label.image = img_tk
 
         result_label.config(text=(
-            f"Gender: {gender_label} ({gender_pred[0][np.argmax(gender_pred)]:.2%})\n"
-            f"Age: {age_label} ({age_pred[0][np.argmax(age_pred)]:.2%})"
+            f"Giới tính: {gender_label} ({gender_pred[0][np.argmax(gender_pred)]:.2%})\n"
+            f"Nhóm tuổi: {age_label} ({age_pred[0][np.argmax(age_pred)]:.2%})"
         ))
 
     except Exception as e:
@@ -63,12 +63,12 @@ def choose_image():
 
 # ---- Giao diện Tkinter ----
 root = tk.Tk()
-root.title("Gender & Age Prediction")
+root.title("Dự đoán giới tính và nhóm tuổi của bạn")
 root.geometry("350x400")
 root.resizable(False, False)
 
 # Nút chọn ảnh
-btn = tk.Button(root, text="Choose Image", command=choose_image, font=('Arial', 12))
+btn = tk.Button(root, text="Tải lên hình ảnh", command=choose_image, font=('Arial', 12), bg='#0052cc', fg='white')
 btn.pack(pady=15)
 
 # Khung hiển thị ảnh
